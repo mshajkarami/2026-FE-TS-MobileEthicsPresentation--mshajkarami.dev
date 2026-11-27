@@ -1614,3 +1614,546 @@ body {
   direction: ltr !important;
   text-align: left;
 }
+
+/* ==================== شبیه‌ساز و رادار ۵.۸ میلیونی پلتفرم‌ها (Slide 8 Masterpiece) ==================== */
+.radar-lab-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 10px;
+}
+
+.radar-lab-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(245, 158, 11, 0.15);
+}
+
+.radar-lab-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.telemetry-stat-chip {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  font-size: 10.5px;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-weight: 700;
+}
+
+.radar-filter-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.radar-filter-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: #fde68a;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 4px;
+}
+
+.radar-filter-pill {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.radar-filter-pill:hover {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.radar-filter-pill.active {
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
+  color: #0b0f17;
+  border-color: var(--accent-gold);
+  font-weight: 800;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.35);
+}
+
+/* فضای کاری دو ستونه شبیه‌ساز رادار */
+.radar-lab-workspace {
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  gap: 14px;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* سایدبار پلتفرم‌ها */
+.radar-platforms-sidebar {
+  background: rgba(16, 21, 33, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.sidebar-header {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #fde68a;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.platform-cards-list {
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 4px;
+}
+
+.platform-cards-list::-webkit-scrollbar {
+  width: 3px;
+}
+
+.platform-cards-list::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.25);
+  border-radius: 4px;
+}
+
+.platform-select-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-right: 3px solid var(--app-color);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  cursor: pointer;
+  text-align: right;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.platform-select-card:hover {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.3);
+  transform: translateX(-2px);
+}
+
+.platform-select-card.active {
+  background: linear-gradient(135deg, rgba(26, 35, 56, 0.95), rgba(16, 22, 36, 0.98));
+  border-color: var(--accent-gold);
+  border-right-width: 4px;
+  box-shadow: 
+    0 0 15px -2px rgba(245, 158, 11, 0.25),
+    0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+.platform-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.platform-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.platform-name-wrap {
+  flex: 1;
+  min-width: 0;
+}
+
+.platform-fa-name {
+  font-size: 12px;
+  font-weight: 800;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.platform-en-name {
+  font-size: 9.5px;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.platform-rate-pill {
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.platform-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 9.5px;
+  color: #64748b;
+  margin-top: 1px;
+}
+
+.platform-domain-tag {
+  max-width: 210px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sidebar-telemetry-box {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 10.5px;
+}
+
+.telemetry-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.t-label {
+  color: #94a3b8;
+}
+
+.t-val {
+  font-weight: 700;
+}
+
+/* ستون چپ: تحلیل کالبدشکافی و استریم نظرات */
+.radar-details-main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.platform-hero-banner {
+  background: linear-gradient(135deg, rgba(20, 27, 42, 0.9) 0%, rgba(12, 16, 24, 0.95) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-right: 4px solid;
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.banner-left-info {
+  flex: 1;
+}
+
+.banner-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.banner-app-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.banner-title-row h3 {
+  font-size: 15px;
+  font-weight: 900;
+  color: #fff;
+  margin: 0;
+}
+
+.banner-sub-domain {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 1px;
+}
+
+.banner-rate-badge {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.rate-num {
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.rate-caption {
+  font-size: 10px;
+  color: #94a3b8;
+}
+
+/* ۳ چالش اخلاقی با بیشترین فراوانی */
+.top-concerns-box {
+  background: rgba(16, 21, 33, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-md);
+  padding: 8px 12px;
+}
+
+.concerns-box-head {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fde68a;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+
+.concerns-bars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.concern-bar-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-sm);
+  padding: 6px 8px;
+}
+
+.bar-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10.5px;
+  color: #cbd5e1;
+  margin-bottom: 4px;
+}
+
+.concern-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 140px;
+}
+
+.concern-percent {
+  font-weight: 800;
+  color: var(--accent-gold);
+}
+
+.progress-bar-track {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+/* بازتاب صدای واقعی کاربران (استریم نظرات) */
+.reviews-stream-wrap {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow: hidden;
+}
+
+.stream-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stream-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.reviews-scroll-list {
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding-left: 4px;
+}
+
+.reviews-scroll-list::-webkit-scrollbar {
+  width: 3px;
+}
+
+.reviews-scroll-list::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.25);
+  border-radius: 4px;
+}
+
+.empty-reviews-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  text-align: center;
+  font-size: 11.5px;
+  color: #64748b;
+}
+
+.review-card-v2 {
+  background: rgba(20, 26, 40, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  transition: all 0.2s ease;
+}
+
+.review-card-v2:hover {
+  border-color: rgba(245, 158, 11, 0.3);
+  transform: translateY(-1px);
+}
+
+.review-card-v2.external {
+  border-right: 3px solid var(--accent-crimson);
+  background: rgba(244, 63, 94, 0.05);
+}
+
+.review-card-v2.internal {
+  border-right: 3px solid var(--accent-emerald);
+  background: rgba(16, 185, 129, 0.04);
+}
+
+.review-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.review-concern-tag {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #fde68a;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.review-meta-pills {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.realm-badge {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.realm-badge.badge-ext {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fda4af;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.realm-badge.badge-int {
+  background: rgba(16, 185, 129, 0.15);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.stars-pill {
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(245, 158, 11, 0.15);
+  color: #fde68a;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.upvotes-pill {
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.review-content-quote {
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: #f1f5f9;
+  font-style: italic;
+}
+
+.radar-empirical-footer {
+  background: rgba(245, 158, 11, 0.08);
+  border-right: 3px solid var(--accent-gold);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: 11px;
+  color: #fde68a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.radar-empirical-footer p {
+  line-height: 1.5;
+}
