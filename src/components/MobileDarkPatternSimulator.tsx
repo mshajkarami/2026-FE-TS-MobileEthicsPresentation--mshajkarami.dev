@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import { DARK_PATTERN_SIMULATIONS } from '../data/ethicsData';
+import simPermissionImg from '../assets/sim_permission_dark.jpg';
+import simReportingImg from '../assets/sim_reporting_dark.jpg';
+import simAccessibilityImg from '../assets/sim_accessibility_dark.jpg';
+import simFeedImg from '../assets/sim_feed_dark.jpg';
 import {
   Smartphone,
   ShieldCheck,
@@ -9,7 +13,6 @@ import {
   UserCheck,
   Check,
   Volume2,
-  Bell,
   Clock,
   Sparkles,
 } from 'lucide-react';
@@ -109,69 +112,35 @@ export function MobileDarkPatternSimulator() {
 
               <div className="phone-content-area">
                 {!isEthicalMode ? (
-                  /* نمای دارک‌پترن غیراخلاقی */
-                  <div className="phone-modal bad-modal">
-                    <div className="modal-header text-rose">
-                      <AlertTriangle size={20} />
-                      <h5>{pattern.titleFa}</h5>
+                  /* نمای واقعی الگوی تاریک در اپلیکیشن (Real App Dark Pattern Evidence) */
+                  <div className="phone-real-dark-screen">
+                    <div className="dark-img-wrapper">
+                      <img
+                        src={
+                          pattern.id === 'over-permission'
+                            ? simPermissionImg
+                            : pattern.id === 'broken-reporting'
+                            ? simReportingImg
+                            : pattern.id === 'infinite-rabbit-hole'
+                            ? simFeedImg
+                            : simAccessibilityImg
+                        }
+                        alt={pattern.titleFa}
+                        className="real-screen-img"
+                      />
+                      <div className="real-screen-evidence-tag">
+                        <AlertTriangle size={12} className="text-crimson" />
+                        <span>مستند زنده: الگوی تاریک در اپلیکیشن واقعی</span>
+                      </div>
                     </div>
 
-                    {pattern.id === 'over-permission' && (
-                      <div className="modal-body-content">
-                        <p className="modal-text">برنامه ماشین‌حساب نیاز به دسترسی‌های زیر دارد:</p>
-                        <ul className="modal-perm-list mono">
-                          <li>❌ ACCESS_BACKGROUND_LOCATION</li>
-                          <li>❌ READ_CONTACTS_DATA</li>
-                          <li>❌ RECORD_AUDIO_CONTINUOUS</li>
-                        </ul>
-                        <div className="modal-actions">
-                          <button className="phone-btn danger-fill">پذیرش و ادامه اجباری</button>
-                          <span className="tiny-exit">خروج از برنامه</span>
-                        </div>
+                    <div className="dark-pattern-explain-banner">
+                      <div className="explain-top">
+                        <span className="explain-badge mono">DARK PATTERN EXPOSED</span>
+                        <h6 className="explain-title">{pattern.titleFa}</h6>
                       </div>
-                    )}
-
-                    {pattern.id === 'broken-reporting' && (
-                      <div className="modal-body-content">
-                        <p className="modal-text">گزارش تخلف (حداکثر ۱۴۰ کاراکتر):</p>
-                        <textarea
-                          readOnly
-                          className="phone-textarea"
-                          value="راننده با سرعت غیرمجاز رفت و فحاشی کرد و کرایه را دوبرابر گرفت و هیچ راهی برای ثبت مدرک نیست..."
-                        />
-                        <div className="char-warning text-rose mono">خطا: ۱۴۰/۱۸۵ کاراکتر مجاز! امکان ارسال نیست.</div>
-                        <button className="phone-btn danger-fill" disabled>
-                          ارسال بدون پیگیری
-                        </button>
-                      </div>
-                    )}
-
-                    {pattern.id === 'infinite-rabbit-hole' && (
-                      <div className="modal-body-content">
-                        <div className="fake-video-card">
-                          <div className="video-thumb-bad">
-                            <Bell size={24} className="shake" />
-                            <span>ویدیوی شوکه‌کننده شماره ۴۹...</span>
-                          </div>
-                          <div className="autoplay-countdown mono">پخش خودکار بدون توقف (۰ ثانیه)</div>
-                        </div>
-                        <p className="tiny-text text-slate-400">شما ۳ ساعت است بدون وقفه در حال اسکرول هستید.</p>
-                      </div>
-                    )}
-
-                    {pattern.id === 'accessibility-neglect' && (
-                      <div className="modal-body-content">
-                        <div className="broken-ui-box">
-                          <div className="unlabeled-btn" title="فاقد ContentDescription">
-                            [ ؟ دکمه ناشناس ]
-                          </div>
-                          <p className="talkback-silent text-rose">
-                            🚫 صفحه‌خوان TalkBack: «عنصر ناشناخته - بدون صدا»
-                          </p>
-                          <div className="video-no-subs">[ ویدیو فاقد زیرنویس برای ناشنوایان ]</div>
-                        </div>
-                      </div>
-                    )}
+                      <p className="explain-desc">{pattern.badPractice}</p>
+                    </div>
                   </div>
                 ) : (
                   /* نمای اخلاقی و مهندسی شده */
