@@ -9,18 +9,19 @@
 @import '@fontsource/jetbrains-mono/700.css';
 
 :root {
-  /* پالت رنگی اختصاصی اخلاق حرفه‌ای: اوبسیدین گرم، طلای سلطنتی و زمرد اخلاق */
+  /* پالت رنگی لوکس و پرستیژ اخلاق حرفه‌ای */
   --bg-primary: #07090e;
-  --bg-surface: #10141e;
-  --bg-card: rgba(16, 20, 30, 0.85);
-  --bg-glass: rgba(26, 32, 48, 0.55);
-  --border-glass: rgba(245, 158, 11, 0.18);
-  --border-subtle: rgba(148, 163, 184, 0.14);
+  --bg-surface: #0e121b;
+  --bg-card: rgba(15, 19, 29, 0.88);
+  --bg-glass: rgba(24, 30, 46, 0.65);
+  
+  --border-gold: rgba(245, 158, 11, 0.28);
+  --border-subtle: rgba(148, 163, 184, 0.12);
   --border-focus: #f59e0b;
   
-  --text-primary: #fbfbfb;
+  --text-primary: #fcfcfc;
   --text-secondary: #cbd5e1;
-  --text-muted: #78889b;
+  --text-muted: #738397;
   
   --accent-gold: #f59e0b;
   --accent-amber: #d97706;
@@ -36,7 +37,7 @@
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
-  --radius-xl: 28px;
+  --radius-xl: 26px;
 }
 
 * {
@@ -65,7 +66,7 @@ body {
   display: inline-block;
 }
 
-/* Container با نورپردازی گرم اختصاصی درس اخلاق */
+/* Container با نورپردازی گرم و ذرات زنده */
 .deck-root {
   position: relative;
   width: 100vw;
@@ -73,56 +74,63 @@ body {
   display: flex;
   flex-direction: column;
   background: 
-    radial-gradient(circle at 15% 10%, rgba(217, 119, 6, 0.14) 0%, transparent 45%),
-    radial-gradient(circle at 85% 90%, rgba(16, 185, 129, 0.12) 0%, transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.04) 0%, transparent 60%),
+    radial-gradient(circle at 18% 12%, rgba(217, 119, 6, 0.16) 0%, transparent 42%),
+    radial-gradient(circle at 82% 88%, rgba(16, 185, 129, 0.14) 0%, transparent 48%),
+    radial-gradient(circle at 50% 50%, rgba(245, 158, 11, 0.05) 0%, transparent 55%),
     #07090e;
+  animation: ambientShift 18s ease-in-out infinite alternate;
 }
 
-/* Top App Header */
+@keyframes ambientShift {
+  0% { filter: hue-rotate(0deg); }
+  50% { filter: hue-rotate(5deg); }
+  100% { filter: hue-rotate(-5deg); }
+}
+
+/* Top App Header - کامپکت و مدرن */
 .deck-top-bar {
-  height: 52px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 28px;
-  background: rgba(10, 13, 20, 0.88);
-  backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+  padding: 0 24px;
+  background: rgba(9, 12, 18, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.18);
   z-index: 40;
 }
 
 .top-bar-left, .top-bar-right {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
 }
 
 .presentation-brand {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 14px;
+  gap: 8px;
+  font-size: 13.5px;
   font-weight: 800;
   color: #fff;
-  letter-spacing: -0.2px;
 }
 
 .brand-icon-wrapper {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   border-radius: var(--radius-sm);
   background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
   display: flex;
   align-items: center;
   justify-content: center;
   color: #000;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
 }
 
 .author-pill {
   font-size: 11.5px;
   font-weight: 700;
-  padding: 4px 12px;
+  padding: 3px 12px;
   border-radius: 9999px;
   background: rgba(245, 158, 11, 0.12);
   color: #fde68a;
@@ -134,7 +142,7 @@ body {
 
 .paper-badge {
   font-size: 11px;
-  padding: 4px 10px;
+  padding: 3px 10px;
   border-radius: 9999px;
   background: rgba(16, 185, 129, 0.12);
   color: #6ee7b7;
@@ -143,21 +151,21 @@ body {
 
 .top-btn {
   background: var(--bg-glass);
-  border: 1px solid var(--border-glass);
+  border: 1px solid var(--border-subtle);
   color: var(--text-secondary);
-  padding: 6px 12px;
+  padding: 5px 11px;
   border-radius: var(--radius-sm);
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 600;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 6px;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .top-btn:hover {
-  background: rgba(245, 158, 11, 0.18);
+  background: rgba(245, 158, 11, 0.2);
   color: #fff;
   border-color: var(--accent-gold);
   transform: translateY(-1px);
@@ -176,7 +184,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 16px 32px 64px 32px;
+  padding: 12px 28px 60px 28px;
   overflow: hidden;
 }
 
@@ -186,32 +194,38 @@ body {
   height: 100%;
   max-height: 840px;
   background: var(--bg-card);
-  backdrop-filter: blur(24px);
-  border: 1px solid var(--border-glass);
+  backdrop-filter: blur(28px);
+  border: 1px solid var(--border-gold);
   border-radius: var(--radius-xl);
-  padding: 30px 42px;
+  padding: 24px 36px 18px 36px;
   display: flex;
   flex-direction: column;
   box-shadow: 
-    0 25px 50px -12px rgba(0, 0, 0, 0.8),
-    0 0 40px -15px rgba(245, 158, 11, 0.12),
-    inset 0 1px 1px rgba(255, 255, 255, 0.08);
+    0 25px 60px -15px rgba(0, 0, 0, 0.85),
+    0 0 45px -10px rgba(245, 158, 11, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
   position: relative;
   overflow: hidden;
+  animation: canvasFadeIn 0.35s ease-out;
+}
+
+@keyframes canvasFadeIn {
+  from { opacity: 0; transform: scale(0.99); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 /* Slide Header */
 .slide-header-box {
-  margin-bottom: 20px;
-  border-bottom: 1px solid rgba(245, 158, 11, 0.15);
-  padding-bottom: 14px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(245, 158, 11, 0.16);
+  padding-bottom: 12px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
 }
 
 .slide-category-tag {
-  font-size: 11.5px;
+  font-size: 11px;
   font-weight: 800;
   text-transform: uppercase;
   color: var(--accent-gold);
@@ -223,23 +237,23 @@ body {
 }
 
 .slide-main-title {
-  font-size: 24px;
+  font-size: 23px;
   font-weight: 900;
   color: #fff;
-  line-height: 1.35;
-  background: linear-gradient(135deg, #ffffff 40%, #fde68a 100%);
+  line-height: 1.3;
+  background: linear-gradient(135deg, #ffffff 45%, #fde68a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .slide-main-subtitle {
-  font-size: 13.5px;
+  font-size: 13px;
   color: var(--text-secondary);
   margin-top: 3px;
 }
 
 .slide-number-badge {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--text-muted);
   display: flex;
   align-items: baseline;
@@ -260,151 +274,511 @@ body {
 }
 
 .slide-body-viewport::-webkit-scrollbar {
-  width: 5px;
+  width: 3px;
 }
 .slide-body-viewport::-webkit-scrollbar-thumb {
-  background: rgba(245, 158, 11, 0.2);
+  background: rgba(245, 158, 11, 0.25);
   border-radius: 4px;
 }
 
-/* Takeaway Bar */
+/* Takeaway Bar - جمع‌وجور و شیک */
 .slide-takeaway-bar {
-  margin-top: 14px;
+  margin-top: 10px;
   background: linear-gradient(90deg, rgba(245, 158, 11, 0.12), rgba(16, 185, 129, 0.06));
-  border-right: 4px solid var(--accent-gold);
-  padding: 10px 18px;
+  border-right: 3px solid var(--accent-gold);
+  padding: 6px 14px;
   border-radius: var(--radius-sm);
-  font-size: 13px;
+  font-size: 12px;
   color: #fef3c7;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
-/* Bottom HUD Navigation */
-.deck-bottom-hud {
+/* ==================== نوار ناوبری مینیمال، شناور و شیک در پایین (Ultra-Minimal Floating Dock) ==================== */
+.deck-floating-dock {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 52px;
-  background: rgba(10, 13, 20, 0.94);
-  backdrop-filter: blur(16px);
-  border-top: 1px solid rgba(245, 158, 11, 0.2);
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 36px;
+  background: rgba(11, 15, 23, 0.84);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(245, 158, 11, 0.24);
+  border-radius: 9999px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 28px;
-  z-index: 30;
+  gap: 12px;
+  padding: 0 14px;
+  box-shadow: 
+    0 12px 35px rgba(0, 0, 0, 0.75),
+    0 0 20px -3px rgba(245, 158, 11, 0.15),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+  z-index: 50;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.progress-track-full {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.08);
+.deck-floating-dock:hover {
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.85),
+    0 0 30px -2px rgba(245, 158, 11, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.15);
+  transform: translateX(-50%) translateY(-2px);
 }
 
-.progress-fill-full {
-  height: 100%;
-  background: linear-gradient(90deg, var(--accent-amber), var(--accent-gold), var(--accent-emerald));
-  transition: width 0.3s ease;
-}
-
-.nav-buttons-group {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.nav-hud-btn {
-  background: var(--bg-glass);
-  border: 1px solid var(--border-glass);
-  color: var(--text-primary);
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-sm);
+.dock-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.nav-hud-btn:hover:not(:disabled) {
+.dock-btn:hover:not(:disabled) {
   background: var(--accent-gold);
-  color: #000;
-  transform: scale(1.05);
+  color: #0b0f17;
+  transform: scale(1.12);
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.5);
 }
 
-.nav-hud-btn:disabled {
-  opacity: 0.3;
+.dock-btn:disabled {
+  opacity: 0.22;
   cursor: not-allowed;
 }
 
-.hud-center-info {
-  font-size: 12.5px;
+.dock-counter {
+  font-size: 11.5px;
+  font-weight: 700;
   color: var(--text-secondary);
   display: flex;
-  align-items: center;
-  gap: 16px;
+  align-items: baseline;
+  gap: 3px;
+  user-select: none;
 }
 
-/* ==================== اسلایدها و کامپوننت‌های بصری ==================== */
+.dock-counter strong {
+  font-size: 13.5px;
+  font-weight: 900;
+  color: var(--accent-gold);
+}
 
-/* Slide 1: Hero با تصویر سه‌بعدی سینمایی */
-.hero-v2-grid {
+.dock-counter-sep {
+  opacity: 0.4;
+  font-size: 11px;
+}
+
+.dock-divider {
+  width: 1px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.dock-timer {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.dock-progress-wrapper {
+  width: 65px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.dock-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-amber), var(--accent-gold), var(--accent-emerald));
+  border-radius: 9999px;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+}
+
+/* ==================== هیرو سکشن انقلابی و بی‌نقص (Slide 1) ==================== */
+.hero-v3-container {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1.1fr 0.9fr;
   gap: 28px;
   height: 100%;
   align-items: center;
 }
 
-.hero-v2-main {
+.hero-v3-left {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
-.hero-v2-banner-card {
-  position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+.hero-academic-tag-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.academic-badge-gold {
+  background: rgba(245, 158, 11, 0.12);
   border: 1px solid rgba(245, 158, 11, 0.3);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-  height: 100%;
-  max-height: 520px;
-  display: flex;
-  flex-direction: column;
+  color: #fde68a;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.hero-image-wrap {
+.academic-badge-glass {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 11px;
+}
+
+.hero-v3-title-wrap h1 {
+  font-size: 34px;
+  font-weight: 900;
+  line-height: 1.25;
+  background: linear-gradient(135deg, #ffffff 40%, #fde68a 85%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+  animation: titleShine 8s ease infinite alternate;
+}
+
+@keyframes titleShine {
+  0% { filter: drop-shadow(0 0 15px rgba(245, 158, 11, 0.15)); }
+  100% { filter: drop-shadow(0 0 25px rgba(245, 158, 11, 0.35)); }
+}
+
+.hero-v3-title-wrap p {
+  font-size: 14px;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+/* ۳ کارت آماری درخشان هیرو */
+.hero-v3-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 6px 0;
+}
+
+.hero-v3-metric-box {
+  background: rgba(24, 30, 46, 0.65);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-v3-metric-box:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-gold);
+  box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.3);
+}
+
+.metric-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.hero-v3-metric-val {
+  font-size: 24px;
+  font-weight: 900;
+}
+
+.hero-v3-metric-lbl {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 3px;
+  white-space: nowrap;
+}
+
+/* کارت رسمی ارائه‌دهنده با عکس واقعی صالح */
+.presenter-luxury-card {
+  background: linear-gradient(135deg, rgba(24, 30, 46, 0.85) 0%, rgba(14, 18, 27, 0.95) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.38);
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 
+    0 12px 30px rgba(0, 0, 0, 0.6),
+    0 0 25px -5px rgba(245, 158, 11, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.presenter-luxury-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.08), transparent);
+  animation: lightSweep 4.5s infinite linear;
+}
+
+@keyframes lightSweep {
+  0% { transform: translateX(250%); }
+  100% { transform: translateX(-250%); }
+}
+
+.presenter-photo-frame {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  padding: 2.5px;
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-emerald), var(--accent-amber));
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.45);
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.presenter-photo-frame img {
   width: 100%;
   height: 100%;
-  position: relative;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
 }
 
-.hero-image-wrap img {
+.photo-pulse-ring {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid rgba(245, 158, 11, 0.5);
+  animation: pulsePhotoRing 3s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulsePhotoRing {
+  0% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.08); opacity: 0; }
+  100% { transform: scale(1); opacity: 0; }
+}
+
+.presenter-details {
+  flex: 1;
+}
+
+.presenter-details h4 {
+  font-size: 15.5px;
+  font-weight: 900;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.verified-badge-wrap {
+  display: inline-flex;
+  align-items: center;
+  color: var(--accent-gold);
+}
+
+.presenter-verified-icon {
+  color: var(--accent-gold);
+  filter: drop-shadow(0 0 6px rgba(245, 158, 11, 0.6));
+}
+
+.presenter-details .role-text {
+  font-size: 11.5px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.brand-url-link {
+  font-size: 11px;
+  color: var(--accent-gold);
+  margin-top: 4px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+  background: rgba(245, 158, 11, 0.08);
+  padding: 2px 8px;
+  border-radius: 9999px;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  transition: all 0.2s ease;
+}
+
+.brand-url-link:hover {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fff;
+  border-color: var(--accent-gold);
+  transform: translateY(-1px);
+}
+
+.hero-launch-btn {
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
+  color: #0b0f17;
+  font-weight: 800;
+  font-size: 12px;
+  border: none;
+  border-radius: 9999px;
+  padding: 8px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.hero-launch-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.55);
+}
+
+/* ستون راست هیرو: تصویر سه‌بعدی شناور با تراشه‌های شیشه‌ای هولوگرافیک */
+.hero-v3-right {
+  position: relative;
+  height: 100%;
+  max-height: 540px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-3d-visual-card {
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(245, 158, 11, 0.15);
+  position: relative;
+  animation: floatSlow 6s ease-in-out infinite alternate;
+}
+
+.hero-3d-ambient-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 60% 40%, rgba(245, 158, 11, 0.2), transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes floatSlow {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(0.3deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.hero-3d-visual-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.hero-image-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(7, 9, 14, 0.95) 100%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 20px;
+/* انیمیشن محتوای اسلاید هنگام تعویض */
+.slide-fade-in {
+  animation: slideFadeInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* Slide 2: کالبدشکافی بصری بحران مدرن اخلاق در موبایل */
+@keyframes slideFadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-floating-chip-1 {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(10, 14, 22, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--accent-gold);
+  color: #fde68a;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 11.5px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  animation: chipPulse 3s infinite ease-in-out;
+}
+
+@keyframes chipPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.hero-floating-chip-2 {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(10, 14, 22, 0.92);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+.chip-2-title {
+  font-size: 11px;
+  color: var(--accent-emerald);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.chip-2-desc {
+  font-size: 12px;
+  color: #f8fafc;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+.chip-2-meta {
+  font-size: 10px;
+  color: #94a3b8;
+  margin-top: 4px;
+}
+
+/* ==================== اسلاید ۲: بحران مدرن اخلاق در موبایل ==================== */
 .slide2-visual-grid {
   display: grid;
   grid-template-columns: 420px 1fr;
@@ -433,6 +807,11 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.slide2-media-showcase:hover .slide2-img-container img {
+  transform: scale(1.04);
 }
 
 .slide2-img-badge {
@@ -549,7 +928,7 @@ body {
   gap: 6px;
 }
 
-/* Slide 7: Split Internal vs External با تصویر اوبر */
+/* ==================== اسلاید ۷: تفکیک Internal vs External با تصویر اوبر ==================== */
 .split-v2-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -592,7 +971,7 @@ body {
   object-fit: cover;
 }
 
-/* Slide 10: Accessibility با تصویر همدلی */
+/* ==================== اسلاید ۱۰: Accessibility با تصویر همدلی ==================== */
 .access-v2-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
@@ -632,13 +1011,13 @@ body {
 /* Notes Drawer & Overview Modal */
 .notes-drawer {
   position: fixed;
-  top: 52px;
-  bottom: 52px;
+  top: 48px;
+  bottom: 0;
   left: 0;
   width: 400px;
   background: rgba(12, 16, 24, 0.98);
   backdrop-filter: blur(24px);
-  border-right: 1px solid var(--border-glass);
+  border-right: 1px solid var(--border-gold);
   box-shadow: 15px 0 40px rgba(0, 0, 0, 0.7);
   z-index: 50;
   display: flex;
@@ -657,7 +1036,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--border-glass);
+  border-bottom: 1px solid rgba(245, 158, 11, 0.2);
   padding-bottom: 14px;
   margin-bottom: 16px;
 }
@@ -697,7 +1076,7 @@ body {
   max-width: 1240px;
   max-height: 85vh;
   background: var(--bg-surface);
-  border: 1px solid var(--border-glass);
+  border: 1px solid var(--border-gold);
   border-radius: var(--radius-xl);
   display: flex;
   flex-direction: column;

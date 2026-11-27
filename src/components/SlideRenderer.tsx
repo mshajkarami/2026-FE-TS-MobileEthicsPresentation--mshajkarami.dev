@@ -8,6 +8,7 @@ import ethicsHeroImg from '../assets/ethics_hero.jpg';
 import darkPatternsImg from '../assets/dark_patterns.jpg';
 import uberSafetyImg from '../assets/uber_safety.jpg';
 import accessibilityImg from '../assets/accessibility.jpg';
+import salehPhoto from '../assets/saleh.jpg';
 
 import {
   Smartphone,
@@ -28,78 +29,120 @@ import {
   Globe2,
   Clock,
   Sparkles,
+  CheckCircle,
+  ArrowLeft,
+  ExternalLink,
 } from 'lucide-react';
 
 interface SlideRendererProps {
   slide: SlideDefinition;
+  onStartPresentation?: () => void;
 }
 
-export function SlideRenderer({ slide }: SlideRendererProps) {
+export function SlideRenderer({ slide, onStartPresentation }: SlideRendererProps) {
   switch (slide.id) {
-    /* اسلاید ۱: کاور و هویت بصری ارائه */
+    /* اسلاید ۱: کاور و هیرو سکشن لوکس و شاهکار */
     case 'slide-01':
       return (
-        <div className="hero-v2-grid">
-          <div className="hero-v2-main">
-            <div className="hero-academic-bar">
-              <span className="hero-academic-pill">دانشگاه فنی و حرفه‌ای (ملی مهارت) استان اصفهان</span>
-              <span className="hero-academic-pill">دانشکده فنی شهید محسن مهاجر</span>
-              <span className="hero-academic-pill">درس: اخلاق حرفه‌ای مهندسی</span>
-              <span className="hero-academic-pill">مدرس: سرکار خانم آرزو صبری</span>
+        <div className="hero-v3-container">
+          <div className="hero-v3-left">
+            <div className="hero-academic-tag-bar">
+              <span className="academic-badge-gold">
+                <Sparkles size={13} />
+                <span>دانشگاه فنی و حرفه‌ای (ملی مهارت) شهید مهاجر اصفهان</span>
+              </span>
+              <span className="academic-badge-glass">درس: اخلاق حرفه‌ای مهندسی</span>
+              <span className="academic-badge-glass">مدرس: سرکار خانم آرزو صبری</span>
             </div>
 
-            <div className="hero-title-box">
+            <div className="hero-v3-title-wrap">
               <h1>کالبدشکافی اخلاق در زیست‌بوم نرم‌افزارهای موبایل</h1>
               <p>تحلیل تجربی ۵.۸ میلیون بازخورد کاربران در گوگل پلی، ۱۶ بُعد اخلاقی، و چارچوب توسعه مسئولانه</p>
             </div>
 
-            <div className="hero-stats-row">
-              <div className="hero-stat-card">
-                <div className="hero-stat-number mono text-gold">5.8M+</div>
-                <div className="hero-stat-label">نظر تحلیل‌شده در گوگل پلی</div>
+            <div className="hero-v3-metrics-grid">
+              <div className="hero-v3-metric-box">
+                <div className="metric-header-row">
+                  <MessageSquare size={15} className="text-gold" />
+                  <span className="hero-v3-metric-val mono text-gold">5.8M+</span>
+                </div>
+                <div className="hero-v3-metric-lbl">نظرات تحلیل‌شده در گوگل پلی</div>
               </div>
-              <div className="hero-stat-card">
-                <div className="hero-stat-number mono text-emerald">16</div>
-                <div className="hero-stat-label">بُعد اخلاقی شناسایی‌شده</div>
+              <div className="hero-v3-metric-box">
+                <div className="metric-header-row">
+                  <Scale size={15} className="text-emerald" />
+                  <span className="hero-v3-metric-val mono text-emerald">16</span>
+                </div>
+                <div className="hero-v3-metric-lbl">بُعد اخلاقی شناسایی‌شده</div>
               </div>
-              <div className="hero-stat-card">
-                <div className="hero-stat-number mono text-sky">F1=0.94</div>
-                <div className="hero-stat-label">دقت مدل عمیق BERT</div>
+              <div className="hero-v3-metric-box">
+                <div className="metric-header-row">
+                  <BrainCircuit size={15} className="text-sky" />
+                  <span className="hero-v3-metric-val mono text-sky">F1=0.94</span>
+                </div>
+                <div className="hero-v3-metric-lbl">دقت مدل عمیق BERT</div>
               </div>
             </div>
 
-            <div className="presenter-profile-box" style={{ marginTop: '12px', borderTop: '1px solid rgba(245, 158, 11, 0.2)', paddingTop: '14px' }}>
-              <div className="avatar-halo" style={{ background: 'linear-gradient(135deg, var(--accent-gold), var(--accent-emerald))' }}>
-                ص
+            {/* کارت پرستیژ رسمی محمد صالح حاج‌کرمی با عکس واقعی */}
+            <div className="presenter-luxury-card">
+              <div className="presenter-photo-frame">
+                <img src={salehPhoto} alt="مهندس محمد صالح حاج‌کرمی" />
+                <div className="photo-pulse-ring" />
               </div>
-              <div className="presenter-info">
-                <h4>مهندس محمد صالح حاج‌کرمی</h4>
-                <p className="mono text-gold">mshajkarami.dev</p>
-                <div className="text-muted" style={{ fontSize: '11px', marginTop: '2px' }}>
-                  توسعه‌دهنده نرم‌افزار موبایل و سامانه‌های سازمانی
-                </div>
+              <div className="presenter-details">
+                <h4>
+                  <span>مهندس محمد صالح حاج‌کرمی</span>
+                  <span className="verified-badge-wrap" title="تاییدشده">
+                    <CheckCircle size={15} className="presenter-verified-icon" />
+                  </span>
+                </h4>
+                <div className="role-text">دانشجوی مهندسی کامپیوتر • توسعه‌دهنده نرم‌افزار موبایل و سامانه‌های سازمانی</div>
+                <a
+                  href="https://mshajkarami.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="brand-url-link mono"
+                  title="مشاهده وب‌سایت شخصی و رزومه"
+                >
+                  <span>mshajkarami.dev</span>
+                  <ExternalLink size={11} />
+                </a>
               </div>
+
+              {onStartPresentation && (
+                <button
+                  className="hero-launch-btn"
+                  onClick={onStartPresentation}
+                  title="ورود به اسلاید بعدی"
+                >
+                  <span>شروع ارائه</span>
+                  <ArrowLeft size={15} />
+                </button>
+              )}
             </div>
           </div>
 
-          <div className="hero-v2-banner-card">
-            <div className="hero-image-wrap">
+          {/* ستون راست: قاب بصری ۳بعدی سینمایی */}
+          <div className="hero-v3-right">
+            <div className="hero-3d-visual-card">
+              <div className="hero-3d-ambient-glow" />
               <img src={ethicsHeroImg} alt="Mobile Software Ethics 3D Concept" />
-              <div className="hero-image-overlay">
-                <div className="paper-ref-title">پژوهش مرجع بین‌المللی:</div>
-                <div className="paper-ref-name" style={{ fontSize: '13px', fontWeight: 800 }}>
-                  The best ends by the best means: ethical concerns in app reviews
-                </div>
-                <div className="paper-ref-meta mono" style={{ color: '#fde68a' }}>
-                  Empirical Software Engineering (2024) 29:138 • Springer Nature
-                </div>
+              <div className="hero-floating-chip-1">
+                <Scale size={14} className="text-gold" />
+                <span>ترازوی عدالت اخلاقی در کدنویسی</span>
+              </div>
+              <div className="hero-floating-chip-2">
+                <div className="chip-2-title">پژوهش مرجع بین‌المللی:</div>
+                <div className="chip-2-desc">The best ends by the best means: ethical concerns in app reviews</div>
+                <div className="chip-2-meta mono">Empirical Software Engineering (2024) 29:138 • Springer Nature</div>
               </div>
             </div>
           </div>
         </div>
       );
 
-    /* اسلاید ۲: بحران مدرن اخلاق در موبایل (کاملاً بصری با تصویر و اینفوگرافیک) */
+    /* اسلاید ۲: بحران مدرن اخلاق در موبایل (بصری با تصویر و اینفوگرافیک) */
     case 'slide-02':
       return (
         <div className="slide2-visual-grid">

@@ -72,7 +72,6 @@ export function App() {
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Do not trigger shortcuts when typing inside an input/textarea
       if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {
         return;
       }
@@ -114,7 +113,6 @@ export function App() {
       const now = Date.now();
       if (now - lastWheelRef.current < 500) return;
 
-      // Check if mouse is over scrollable inner container
       const target = e.target as HTMLElement;
       if (target.closest('.slide-body-viewport') || target.closest('.reviews-list') || target.closest('.code-editor-box')) {
         return;
@@ -140,7 +138,7 @@ export function App() {
         <div className="top-bar-left">
           <div className="presentation-brand">
             <div className="brand-icon-wrapper">
-              <Sparkles size={16} />
+              <Sparkles size={15} />
             </div>
             <span>اخلاق در توسعه نرم‌افزار موبایل</span>
           </div>
@@ -183,80 +181,86 @@ export function App() {
       {/* ناحیه بوم اسلاید */}
       <main className="deck-stage-area">
         <div className="slide-canvas">
-          {/* هدر اسلاید */}
-          <div className="slide-header-box">
-            <div>
-              <div className="slide-category-tag">
-                <BookOpen size={13} />
-                <span>بخش {currentSlide.category.toUpperCase()} • اسلاید {currentSlide.number} از {SLIDES.length}</span>
+          {/* هدر اسلاید فقط برای اسلایدهای ۲ به بعد نمایش داده می‌شود */}
+          {currentSlide.id !== 'slide-01' && (
+            <div className="slide-header-box">
+              <div>
+                <div className="slide-category-tag">
+                  <BookOpen size={13} />
+                  <span>بخش {currentSlide.category.toUpperCase()} • اسلاید {currentSlide.number} از {SLIDES.length}</span>
+                </div>
+                <h2 className="slide-main-title">{currentSlide.title}</h2>
+                <p className="slide-main-subtitle">{currentSlide.subtitle}</p>
               </div>
-              <h2 className="slide-main-title">{currentSlide.title}</h2>
-              <p className="slide-main-subtitle">{currentSlide.subtitle}</p>
+              <div className="slide-number-badge">
+                <strong>{String(currentSlide.number).padStart(2, '0')}</strong>
+                <span>/ {SLIDES.length}</span>
+              </div>
             </div>
-            <div className="slide-number-badge">
-              <strong>{String(currentSlide.number).padStart(2, '0')}</strong>
-              <span>/ {SLIDES.length}</span>
-            </div>
+          )}
+
+          {/* محتوای رندرشونده اسلاید با انیمیشن روان تغییر اسلاید */}
+          <div key={currentSlide.id} className="slide-body-viewport slide-fade-in">
+            <SlideRenderer slide={currentSlide} onStartPresentation={goNext} />
           </div>
 
-          {/* محتوای رندرشونده اسلاید */}
-          <div className="slide-body-viewport">
-            <SlideRenderer slide={currentSlide} />
-          </div>
-
-          {/* نوار پیام کلیدی اسلاید */}
-          <div className="slide-takeaway-bar">
-            <strong>نکته کلیدی:</strong>
-            <span>{currentSlide.keyTakeaway}</span>
-          </div>
+          {/* نوار پیام کلیدی اسلاید فقط برای اسلایدهای ۲ به بعد */}
+          {currentSlide.id !== 'slide-01' && (
+            <div className="slide-takeaway-bar">
+              <strong className="text-gold">نکته کلیدی:</strong>
+              <span>{currentSlide.keyTakeaway}</span>
+            </div>
+          )}
         </div>
       </main>
 
-      {/* نوار وضعیت پایینی (HUD) */}
-      <footer className="deck-bottom-hud">
-        {/* نوار پیشرفت افقی باریک */}
-        <div className="progress-track-full">
-          <div className="progress-fill-full" style={{ width: `${progressPercent}%` }} />
+      {/* نوار ناوبری مینیمال، شناور و شیک در پایین (Ultra-Minimal Floating Dock) */}
+      <nav className="deck-floating-dock" aria-label="Slide Navigation">
+        <button
+          className="dock-btn"
+          onClick={goPrev}
+          disabled={currentIndex === 0}
+          title="اسلاید قبلی (کلید جهت‌نما راست)"
+          aria-label="اسلاید قبلی"
+        >
+          <ChevronRight size={15} />
+        </button>
+
+        <div className="dock-counter mono" title="شماره اسلاید فعلی">
+          <strong>{String(currentIndex + 1).padStart(2, '0')}</strong>
+          <span className="dock-counter-sep">/</span>
+          <span>{String(SLIDES.length).padStart(2, '0')}</span>
         </div>
 
-        <div className="nav-buttons-group">
-          <button
-            className="nav-hud-btn"
-            onClick={goPrev}
-            disabled={currentIndex === 0}
-            title="اسلاید قبلی (Arrow Right)"
-          >
-            <ChevronRight size={18} />
-          </button>
-          <button
-            className="nav-hud-btn"
-            onClick={goNext}
-            disabled={currentIndex === SLIDES.length - 1}
-            title="اسلاید بعدی (Arrow Left یا Space)"
-          >
-            <ChevronLeft size={18} />
-          </button>
+        <button
+          className="dock-btn"
+          onClick={goNext}
+          disabled={currentIndex === SLIDES.length - 1}
+          title="اسلاید بعدی (کلید جهت‌نما چپ یا فاصله)"
+          aria-label="اسلاید بعدی"
+        >
+          <ChevronLeft size={15} />
+        </button>
+
+        <div className="dock-divider" />
+
+        <div className="dock-progress-wrapper" title={`پیشرفت کل ارائه: ${Math.round(progressPercent)}%`}>
+          <div className="dock-progress-bar" style={{ width: `${progressPercent}%` }} />
         </div>
 
-        <div className="hud-center-info">
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <Clock size={13} className="text-sky" />
-            <span className="mono">{formatElapsed(elapsedSeconds)}</span>
-          </div>
-          <span>•</span>
-          <span>دانشکده فنی مهاجر • درس اخلاق حرفه‌ای مهندسی</span>
-        </div>
+        <div className="dock-divider" />
 
-        <div style={{ fontSize: '12px', color: 'var(--text-muted)' }}>
-          <span className="mono">{currentIndex + 1}</span> / <span className="mono">{SLIDES.length}</span>
+        <div className="dock-timer mono" title="مدت زمان ارائه">
+          <Clock size={12} className="text-gold" />
+          <span>{formatElapsed(elapsedSeconds)}</span>
         </div>
-      </footer>
+      </nav>
 
       {/* کشوی یادداشت‌های گوینده (سناریوی نریشن صالح) */}
       <aside className={`notes-drawer ${showNotes ? 'open' : ''}`}>
         <div className="notes-header">
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <StickyNote size={16} className="text-sky" />
+            <StickyNote size={16} className="text-gold" />
             <h4 style={{ fontSize: '14px', color: '#fff' }}>سناریوی گفتاری و نریشن صالح</h4>
           </div>
           <button className="top-btn" onClick={() => setShowNotes(false)}>
@@ -264,7 +268,7 @@ export function App() {
           </button>
         </div>
 
-        <div style={{ fontSize: '11px', color: 'var(--accent-sky)', marginBottom: '10px' }}>
+        <div style={{ fontSize: '11px', color: 'var(--accent-gold)', marginBottom: '10px' }}>
           اسلاید {currentSlide.number}: {currentSlide.title} (مدت پیشنهادی: {currentSlide.durationMin} دقیقه)
         </div>
 
@@ -279,7 +283,7 @@ export function App() {
       {showOverview && (
         <div className="overview-modal-backdrop" onClick={() => setShowOverview(false)}>
           <div className="overview-modal-card" onClick={(e) => e.stopPropagation()}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px 24px', borderBottom: '1px solid var(--border-glass)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', padding: '16px 24px', borderBottom: '1px solid rgba(245, 158, 11, 0.2)' }}>
               <h3 style={{ fontSize: '16px', color: '#fff' }}>فهرست و انتخاب سریع اسلایدها</h3>
               <button className="top-btn" onClick={() => setShowOverview(false)}>
                 <X size={16} />
@@ -297,7 +301,7 @@ export function App() {
                   }}
                 >
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
-                    <span className="mono" style={{ fontSize: '11px', color: 'var(--accent-sky)', fontWeight: 800 }}>
+                    <span className="mono" style={{ fontSize: '11px', color: 'var(--accent-gold)', fontWeight: 800 }}>
                       #{s.number}
                     </span>
                     <span style={{ fontSize: '10px', color: 'var(--text-muted)' }}>{s.category}</span>
