@@ -32,6 +32,11 @@ import {
   CheckCircle,
   ArrowLeft,
   ExternalLink,
+  Database,
+  GraduationCap,
+  UserCheck,
+  Globe,
+  BookOpen,
 } from 'lucide-react';
 
 interface SlideRendererProps {
@@ -48,39 +53,56 @@ export function SlideRenderer({ slide, onStartPresentation }: SlideRendererProps
           <div className="hero-v3-left">
             <div className="hero-academic-tag-bar">
               <span className="academic-badge-gold">
-                <Sparkles size={13} />
+                <GraduationCap size={14} className="text-gold" />
                 <span>دانشگاه فنی و حرفه‌ای (ملی مهارت) شهید مهاجر اصفهان</span>
               </span>
-              <span className="academic-badge-glass">درس: اخلاق حرفه‌ای مهندسی</span>
-              <span className="academic-badge-glass">مدرس: سرکار خانم آرزو صبری</span>
+              <span className="academic-badge-glass">
+                <BookOpen size={12} className="text-amber" />
+                <span>درس: اخلاق حرفه‌ای مهندسی</span>
+              </span>
+              <span className="academic-badge-glass">
+                <UserCheck size={12} className="text-emerald" />
+                <span>مدرس: سرکار خانم مهندس آرزو صبری</span>
+              </span>
             </div>
 
             <div className="hero-v3-title-wrap">
               <h1>کالبدشکافی اخلاق در زیست‌بوم نرم‌افزارهای موبایل</h1>
-              <p>تحلیل تجربی ۵.۸ میلیون بازخورد کاربران در گوگل پلی، ۱۶ بُعد اخلاقی، و چارچوب توسعه مسئولانه</p>
+              <p>تحلیل تجربی ۵.۸ میلیون بازخورد کاربران در گوگل‌پلی، ۱۶ بُعد اخلاقی، و چارچوب توسعه مسئولانه نرم‌افزار</p>
             </div>
 
             <div className="hero-v3-metrics-grid">
-              <div className="hero-v3-metric-box">
-                <div className="metric-header-row">
-                  <MessageSquare size={15} className="text-gold" />
+              <div className="hero-v3-metric-box gold-border">
+                <div className="metric-box-top">
+                  <div className="metric-icon-badge bg-gold-light">
+                    <Database size={16} className="text-gold" />
+                  </div>
                   <span className="hero-v3-metric-val mono text-gold">5.8M+</span>
                 </div>
-                <div className="hero-v3-metric-lbl">نظرات تحلیل‌شده در گوگل پلی</div>
+                <div className="hero-v3-metric-lbl">نظرات کاوش‌شده در گوگل‌پلی</div>
+                <div className="metric-subtag mono">10 Global Apps across 4 Domains</div>
               </div>
-              <div className="hero-v3-metric-box">
-                <div className="metric-header-row">
-                  <Scale size={15} className="text-emerald" />
+
+              <div className="hero-v3-metric-box emerald-border">
+                <div className="metric-box-top">
+                  <div className="metric-icon-badge bg-emerald-light">
+                    <Scale size={16} className="text-emerald" />
+                  </div>
                   <span className="hero-v3-metric-val mono text-emerald">16</span>
                 </div>
-                <div className="hero-v3-metric-lbl">بُعد اخلاقی شناسایی‌شده</div>
+                <div className="hero-v3-metric-lbl">بُعد اخلاقی در ۶ لایه سیستمی</div>
+                <div className="metric-subtag">۹ مقوله نوین تجربی کشف‌شده</div>
               </div>
-              <div className="hero-v3-metric-box">
-                <div className="metric-header-row">
-                  <BrainCircuit size={15} className="text-sky" />
-                  <span className="hero-v3-metric-val mono text-sky">F1=0.94</span>
+
+              <div className="hero-v3-metric-box sky-border">
+                <div className="metric-box-top">
+                  <div className="metric-icon-badge bg-sky-light">
+                    <BrainCircuit size={16} className="text-sky" />
+                  </div>
+                  <span className="hero-v3-metric-val mono text-sky">F1 = 0.94</span>
                 </div>
-                <div className="hero-v3-metric-lbl">دقت مدل عمیق BERT</div>
+                <div className="hero-v3-metric-lbl">دقت مدل ترنسفورمر BERT</div>
+                <div className="metric-subtag mono">Cohen's Kappa = 0.91</div>
               </div>
             </div>
 
@@ -103,10 +125,11 @@ export function SlideRenderer({ slide, onStartPresentation }: SlideRendererProps
                   target="_blank"
                   rel="noopener noreferrer"
                   className="brand-url-link mono"
-                  title="مشاهده وب‌سایت شخصی و رزومه"
+                  title="مشاهده وب‌سایت شخصی و پورتفولیو"
                 >
+                  <Globe size={11} />
                   <span>mshajkarami.dev</span>
-                  <ExternalLink size={11} />
+                  <ExternalLink size={10} />
                 </a>
               </div>
 
