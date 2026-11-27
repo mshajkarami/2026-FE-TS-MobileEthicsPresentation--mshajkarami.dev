@@ -1,8 +1,8 @@
 import { SlideDefinition } from '../types/presentation';
-import { ETHICAL_CATEGORIES } from '../data/ethicsData';
 import { EthicsRadarLab } from './EthicsRadarLab';
 import { MobileDarkPatternSimulator } from './MobileDarkPatternSimulator';
 import { ClassQuiz } from './ClassQuiz';
+import { TaxonomyExplorer } from './TaxonomyExplorer';
 
 import ethicsHeroImg from '../assets/ethics_hero.jpg';
 import darkPatternsImg from '../assets/dark_patterns.jpg';
@@ -365,31 +365,9 @@ export function SlideRenderer({ slide, onStartPresentation }: SlideRendererProps
         </div>
       );
 
-    /* اسلاید ۶: تاکسونومی ۱۶ بعدی اخلاق */
+    /* اسلاید ۶: کاوشگر پیشرفته تاکسونومی ۱۶ بعدی اخلاق (Empirical Taxonomy Explorer) */
     case 'slide-06':
-      return (
-        <div className="taxonomy-grid">
-          {ETHICAL_CATEGORIES.map((cat) => (
-            <div key={cat.id} className="tax-card">
-              <div className="tax-card-top">
-                <span className="badge-pill mono" style={{ backgroundColor: `${cat.color}22`, color: cat.color }}>
-                  {cat.nameEn}
-                </span>
-                <span className="tax-card-pct mono" style={{ color: cat.color }}>{cat.percentage}%</span>
-              </div>
-              <div className="tax-card-name">{cat.nameFa}</div>
-              <p className="tax-card-desc">{cat.descriptionFa}</p>
-              <div className="tax-card-metrics mono">
-                <span>★ {cat.avgRating.toFixed(2)}</span>
-                <span>{cat.avgWords.toFixed(0)} words</span>
-                <span style={{ color: cat.id === 'accessibility' ? 'var(--accent-gold)' : undefined, fontWeight: cat.id === 'accessibility' ? 800 : undefined }}>
-                  👍 {cat.avgUpvotes.toFixed(1)}
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-      );
+      return <TaxonomyExplorer />;
 
     /* اسلاید ۷: دغدغه‌های Internal vs External با تصویر اوبر */
     case 'slide-07':

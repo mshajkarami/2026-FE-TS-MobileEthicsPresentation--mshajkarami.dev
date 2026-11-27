@@ -1110,3 +1110,507 @@ body {
   border-color: var(--accent-gold);
   background: rgba(245, 158, 11, 0.15);
 }
+
+/* ==================== کاوشگر تجربی تاکسونومی ۱۶ بعدی اخلاق (Slide 6 Masterpiece) ==================== */
+.tax-explorer-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 10px;
+}
+
+/* نوار کنترل، فیلترها و مرتب‌سازی بالا */
+.tax-explorer-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(245, 158, 11, 0.15);
+}
+
+.tax-filter-pills, .tax-sort-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tax-control-label {
+  font-size: 11px;
+  font-weight: 800;
+  color: #fde68a;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 4px;
+}
+
+.tax-filter-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #cbd5e1;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tax-filter-btn:hover {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.tax-filter-btn.active {
+  background: linear-gradient(135deg, var(--accent-gold), var(--accent-amber));
+  color: #0b0f17;
+  border-color: var(--accent-gold);
+  font-weight: 800;
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.35);
+}
+
+.tax-sort-select {
+  background: rgba(18, 24, 38, 0.9);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #fde68a;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tax-sort-select:hover, .tax-sort-select:focus {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.25);
+}
+
+/* بنر هایلایت‌های برجسته پژوهش */
+.tax-highlights-banner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.tax-highlight-chip {
+  background: rgba(18, 24, 38, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: 11px;
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tax-highlight-chip.gold-glow {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.3);
+  box-shadow: 0 0 15px -3px rgba(245, 158, 11, 0.15);
+}
+
+.chip-badge {
+  font-size: 9.5px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+/* ناحیه کاری دو ستونه */
+.tax-workspace-split {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 16px;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* ستون چپ: گرید کارت‌ها با اسکرول باریک */
+.tax-cards-grid-scroll {
+  overflow-y: auto;
+  max-height: 100%;
+  padding-left: 6px;
+}
+
+.tax-cards-grid-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.tax-cards-grid-scroll::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.3);
+  border-radius: 4px;
+}
+
+.tax-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+/* کارت نسخه دوم تاکسونومی */
+.tax-card-v2 {
+  background: rgba(16, 21, 33, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-right: 3.5px solid var(--cat-color);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.tax-card-v2:hover {
+  background: rgba(22, 29, 46, 0.9);
+  border-color: var(--cat-color);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.7);
+}
+
+.tax-card-v2.selected {
+  background: linear-gradient(135deg, rgba(26, 35, 56, 0.95), rgba(16, 22, 36, 0.98));
+  border-color: var(--accent-gold);
+  border-right-width: 4px;
+  box-shadow: 
+    0 0 20px -3px rgba(245, 158, 11, 0.3),
+    0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+.tax-card-v2-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tax-card-icon-wrap {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.tax-card-title-block {
+  flex: 1;
+  min-width: 0;
+}
+
+.tax-card-name-fa {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tax-card-name-en {
+  font-size: 10px;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tax-card-pct-badge {
+  font-size: 15px;
+  font-weight: 900;
+}
+
+/* نوار گرافیکی پیشرفت درصد */
+.tax-card-progress-bar {
+  height: 3.5px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  margin: 7px 0;
+  overflow: hidden;
+}
+
+.tax-card-progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+/* ۳ چیپ متریک در کارت */
+.tax-card-metrics-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.metric-pill {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 2px 6px;
+  border-radius: 5px;
+  font-size: 10.5px;
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.metric-pill.crit-rating {
+  background: rgba(244, 63, 94, 0.14);
+  border-color: rgba(244, 63, 94, 0.3);
+  color: #fca5a5;
+  font-weight: 800;
+}
+
+.metric-pill.highlight-upvotes {
+  background: rgba(245, 158, 11, 0.18);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #fde68a;
+  font-weight: 800;
+}
+
+/* برچسب‌های کوچک متادیتا */
+.tax-card-tags-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+}
+
+.tax-mini-tag {
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.tax-mini-tag.external {
+  background: rgba(244, 63, 94, 0.15);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  color: #fda4af;
+}
+
+.tax-mini-tag.new-tag {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #fde68a;
+}
+
+.tax-mini-tag.rank {
+  margin-right: auto;
+  color: #64748b;
+}
+
+/* ==================== ستون راست: بازرس عمیق (Deep Inspector) ==================== */
+.tax-inspector-panel {
+  overflow-y: auto;
+  max-height: 100%;
+}
+
+.tax-inspector-panel::-webkit-scrollbar {
+  width: 3px;
+}
+
+.tax-inspector-panel::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.25);
+  border-radius: 4px;
+}
+
+.inspector-card {
+  background: linear-gradient(145deg, rgba(20, 27, 42, 0.92) 0%, rgba(11, 15, 23, 0.96) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.32);
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.7),
+    0 0 25px -5px rgba(245, 158, 11, 0.12);
+}
+
+.inspector-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.inspector-large-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.inspector-title-area {
+  flex: 1;
+}
+
+.inspector-rank-badge {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.inspector-title-area h3 {
+  font-size: 18px;
+  font-weight: 900;
+  color: #fff;
+  margin: 1px 0;
+}
+
+.inspector-subtitle {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.inspector-share-box {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid;
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.share-box-left {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.share-label {
+  font-size: 11.5px;
+  color: #94a3b8;
+}
+
+.share-percent {
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.inspector-desc {
+  font-size: 12.5px;
+  color: #cbd5e1;
+  line-height: 1.65;
+}
+
+/* مقایسه متریک‌ها با میانگین عادی استور */
+.inspector-metrics-compare {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.compare-bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.compare-bar-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #cbd5e1;
+}
+
+.compare-bar-top span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.compare-bar-top small {
+  color: #64748b;
+  font-size: 10px;
+}
+
+.compare-progress-track {
+  position: relative;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  overflow: visible;
+}
+
+.compare-progress-fill {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+.benchmark-marker {
+  position: absolute;
+  top: -2.5px;
+  width: 2px;
+  height: 10px;
+  background: #ffffff;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+  border-radius: 1px;
+}
+
+/* باکس سند تجربی و نظر واقعی کاربر */
+.inspector-quote-box {
+  background: rgba(245, 158, 11, 0.06);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+}
+
+.quote-box-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.quote-header-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fde68a;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.quote-platform-tag {
+  font-size: 10px;
+  background: rgba(245, 158, 11, 0.15);
+  color: #fde68a;
+  padding: 1px 7px;
+  border-radius: 9999px;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.quote-body-text {
+  font-size: 11.5px;
+  color: #e2e8f0;
+  line-height: 1.55;
+  font-style: italic;
+  direction: ltr !important;
+  text-align: left;
+}
