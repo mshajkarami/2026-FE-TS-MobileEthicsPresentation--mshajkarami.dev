@@ -12,7 +12,6 @@ import salehPhoto from '../assets/saleh.jpg';
 
 import {
   Smartphone,
-  Layers,
   Scale,
   BrainCircuit,
   Calendar,
@@ -37,6 +36,12 @@ import {
   UserCheck,
   Globe,
   BookOpen,
+  Compass,
+  Activity,
+  Filter,
+  FileText,
+  Copy,
+  ShieldAlert,
 } from 'lucide-react';
 
 interface SlideRendererProps {
@@ -277,74 +282,193 @@ export function SlideRenderer({ slide, onStartPresentation }: SlideRendererProps
         </div>
       );
 
-    /* اسلاید ۳: شناسنامه پژوهش ESE 2024 */
+    /* اسلاید ۳: شناسنامه پژوهش ESE 2024 و ۳ سؤال بنیادی */
     case 'slide-03':
       return (
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '24px', height: '100%' }}>
-          <div className="platform-details-card" style={{ borderColor: 'rgba(245, 158, 11, 0.3)' }}>
-            <div className="badge-pill bg-gold-light" style={{ width: 'fit-content', marginBottom: '8px' }}>
-              Springer Nature Publication
+        <div className="slide3-research-passport-grid">
+          {/* ستون راست: پاسپورت آکادمیک مقاله مرجع */}
+          <div className="research-passport-card">
+            <div className="passport-header">
+              <span className="passport-badge-gold">
+                <Sparkles size={12} className="text-gold" />
+                <span>Springer Nature Publication</span>
+              </span>
+              <span className="passport-rank-badge mono">ISI Q1 • IF: 3.8</span>
             </div>
-            <h4 style={{ fontSize: '18px', color: '#fde68a', marginBottom: '12px' }}>مشخصات رسمی مقاله رفرنس</h4>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13px' }}>
-              <li><strong>عنوان:</strong> The best ends by the best means: ethical concerns in app reviews</li>
-              <li><strong>ژورنال:</strong> Empirical Software Engineering (ESE), Vol 29, Issue 138 (2024)</li>
-              <li><strong>ناشر:</strong> Springer Nature (نمایه ISI Web of Science با ایمپکت فاکتور بالا)</li>
-              <li><strong>نویسندگان:</strong> Neelam Tjikhoeri, Lauren Olson, Emitzá Guzmán</li>
-              <li><strong>وابستگی سازمانی:</strong> دانشکده علوم، دانشگاه وریج آمستردام (هلند)</li>
-              <li className="mono text-gold">DOI: 10.1007/s10664-024-10463-7</li>
-            </ul>
+
+            <h3 className="passport-paper-title">The best ends by the best means: ethical concerns in app reviews</h3>
+            <div className="passport-paper-fa">«بهترین اهداف با بهترین ابزارها: دغدغه‌های اخلاقی در بازخورد اپلیکیشن‌ها»</div>
+
+            <div className="passport-meta-grid">
+              <div className="passport-meta-item">
+                <span className="meta-lbl">ژورنال معتبر:</span>
+                <span className="meta-val mono">Empirical Software Engineering (ESE)</span>
+              </div>
+              <div className="passport-meta-item">
+                <span className="meta-lbl">سال و جلد:</span>
+                <span className="meta-val mono">Volume 29, Issue 138 (2024)</span>
+              </div>
+              <div className="passport-meta-item">
+                <span className="meta-lbl">پژوهشگران:</span>
+                <span className="meta-val">Neelam Tjikhoeri, Lauren Olson, Emitzá Guzmán</span>
+              </div>
+              <div className="passport-meta-item">
+                <span className="meta-lbl">دانشگاه مرجع:</span>
+                <span className="meta-val">دانشکده علوم، دانشگاه وریج آمستردام (هلند)</span>
+              </div>
+            </div>
+
+            <div className="passport-doi-box mono">
+              <span className="doi-tag">DOI</span>
+              <span className="doi-url">10.1007/s10664-024-10463-7</span>
+              <ExternalLink size={12} className="text-gold" />
+            </div>
           </div>
-          <div className="platform-details-card">
-            <h4 style={{ fontSize: '18px', color: '#10b981', marginBottom: '12px' }}>۳ سؤال بنیادی پژوهش (Research Questions)</h4>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              <div style={{ background: 'rgba(245, 158, 11, 0.08)', padding: '14px', borderRadius: '10px', borderRight: '4px solid var(--accent-gold)' }}>
-                <strong className="text-gold">RQ1 (انواع دغدغه‌ها):</strong> چه مقولاتی از دغدغه‌های اخلاقی در نظرات وجود دارند و چگونه با وقایع سیاسی و زمانی تغییر می‌کنند؟
+
+          {/* ستون چپ: ۳ سؤال بنیادی پژوهش (Research Questions) */}
+          <div className="research-rq-container">
+            <div className="rq-section-title">
+              <Compass size={15} className="text-gold" />
+              <span>۳ پرسش بنیادی پژوهش (Core Research Questions):</span>
+            </div>
+
+            <div className="rq-cards-list">
+              {/* RQ1 */}
+              <div className="rq-luxury-card rq-gold">
+                <div className="rq-card-header">
+                  <span className="rq-badge mono">RQ 1</span>
+                  <span className="rq-type-tag">مقوله‌بندی و پویایی زمانی</span>
+                </div>
+                <div className="rq-question-text">
+                  چه مقولاتی از دغدغه‌های اخلاقی در نظرات کاربران وجود دارند و این دغدغه‌ها چگونه با رخدادهای سیاسی و زمانی تغییر می‌کنند؟
+                </div>
+                <div className="rq-answer-footer">
+                  <CheckCircle2 size={13} className="text-gold" />
+                  <span>دستاورد: کشف ۱۶ بُعد اخلاقی (۹ مقوله کاملاً جدید و نوظهور)</span>
+                </div>
               </div>
-              <div style={{ background: 'rgba(16, 185, 129, 0.08)', padding: '14px', borderRadius: '10px', borderRight: '4px solid var(--accent-emerald)' }}>
-                <strong className="text-emerald">RQ2 (رفتارشناسی و شاخص‌ها):</strong> ریویوهای اخلاقی چه ویژگی‌های آماری متمایزی از حیث ریتینگ، طول کلمات و لایک دارند؟
+
+              {/* RQ2 */}
+              <div className="rq-luxury-card rq-emerald">
+                <div className="rq-card-header">
+                  <span className="rq-badge mono">RQ 2</span>
+                  <span className="rq-type-tag">رفتارشناسی و شاخص‌های آماری</span>
+                </div>
+                <div className="rq-question-text">
+                  ریویوهای اخلاقی چه ویژگی‌های آماری متمایزی از حیث امتیاز ستاره، طول کلمات و میزان لایک نسبت به نظرات عادی دارند؟
+                </div>
+                <div className="rq-answer-footer">
+                  <CheckCircle2 size={13} className="text-emerald" />
+                  <span>دستاورد: سقوط رضایت به ۱.۸۹ ستاره و رکورد ۱۰۸.۵ لایک در دسترس‌پذیری</span>
+                </div>
               </div>
-              <div style={{ background: 'rgba(56, 189, 248, 0.08)', padding: '14px', borderRadius: '10px', borderRight: '4px solid var(--accent-sky)' }}>
-                <strong className="text-sky">RQ3 (پتانسیل خودکارسازی):</strong> آیا یادگیری ماشین و ترنسفورمر BERT می‌توانند این دغدغه‌ها را به صورت خودکار پایش کنند؟
+
+              {/* RQ3 */}
+              <div className="rq-luxury-card rq-sky">
+                <div className="rq-card-header">
+                  <span className="rq-badge mono">RQ 3</span>
+                  <span className="rq-type-tag">خودکارسازی و یادگیری ماشین</span>
+                </div>
+                <div className="rq-question-text">
+                  آیا مدل‌های یادگیری ماشین و ترنسفورمر BERT می‌توانند این دغدغه‌های اخلاقی را با دقت بالا در خطوط لوله نرم‌افزاری تشخیص دهند؟
+                </div>
+                <div className="rq-answer-footer">
+                  <CheckCircle2 size={13} className="text-sky" />
+                  <span>دستاورد: اثبات برتری مطلق BERT با شاخص F1 = 0.94 در پایش بلادرنگ</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       );
 
-    /* اسلاید ۴: متدولوژی و دیتاست */
+    /* اسلاید ۴: متدولوژی و پایپ‌لاین دیتاست */
     case 'slide-04':
       return (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '18px', height: '100%' }}>
-          <div className="platform-details-card" style={{ borderTop: '4px solid var(--accent-gold)' }}>
-            <Layers size={32} className="text-gold" />
-            <h4 style={{ fontSize: '17px', margin: '12px 0 6px', color: '#fff' }}>مخزن داده ۵.۸ میلیونی</h4>
-            <p style={{ fontSize: '13px', color: '#cbd5e1', lineHeight: '1.6' }}>
-              جمع‌آوری ۵,۸۶۴,۱۸۸ نظر واقعی از ۱۰ اپلیکیشن پیشرو در گوگل پلی استور به عنوان بزرگ‌ترین فروشگاه اپ جهان.
-            </p>
-            <div className="mono text-gold" style={{ fontSize: '11px', marginTop: 'auto' }}>
-              10 Global Apps across 4 Domains
+        <div className="slide4-methodology-container">
+          <div className="method-pipeline-header">
+            <span className="academic-badge-gold">
+              <Activity size={13} className="text-gold" />
+              <span>پایپ‌لاین ۵ مرحله‌ای تضمین سخت‌گیری روش‌شناسی (Methodological Rigor)</span>
+            </span>
+            <span className="telemetry-stat-chip mono">Cohen's Kappa = 0.91 (توافق عالی)</span>
+          </div>
+
+          <div className="method-pipeline-grid">
+            {/* گام ۱ */}
+            <div className="pipeline-step-card step-gold">
+              <div className="step-num mono">01</div>
+              <div className="step-icon-wrap bg-gold-light">
+                <Database size={20} className="text-gold" />
+              </div>
+              <div className="step-title">مخزن ۵.۸ میلیونی</div>
+              <div className="step-stat mono">5,864,188 نظرات</div>
+              <p className="step-desc">
+                استخراج تمام بازخوردهای ۱۰ اپلیکیشن برتر گوگل‌پلی استور در ۴ حوزه تخصصی.
+              </p>
+              <div className="step-tag mono">10 Global Apps</div>
+            </div>
+
+            {/* گام ۲ */}
+            <div className="pipeline-step-card step-amber">
+              <div className="step-num mono">02</div>
+              <div className="step-icon-wrap bg-gold-light">
+                <Filter size={20} className="text-amber" />
+              </div>
+              <div className="step-title">فیلترینگ هدفمند</div>
+              <div className="step-stat mono">109 واژه اخلاقی</div>
+              <p className="step-desc">
+                استخراج ۱۰۹ کلیدواژه اخلاقی دقیق از ادبیات علمی و تحلیل واژگانی برای غربال نظرات.
+              </p>
+              <div className="step-tag mono">Keyword Heuristics</div>
+            </div>
+
+            {/* گام ۳ */}
+            <div className="pipeline-step-card step-emerald">
+              <div className="step-num mono">03</div>
+              <div className="step-icon-wrap bg-emerald-light">
+                <Scale size={20} className="text-emerald" />
+              </div>
+              <div className="step-title">۹ دور ارزیابی تجربی</div>
+              <div className="step-stat mono">Kappa = 0.91</div>
+              <p className="step-desc">
+                ۲ ارزیاب مستقل، ۹ دوره پیش‌آزمون برچسب‌گذاری دستی را انجام دادند تا ضریب توافق به ۰.۹۱ رسید.
+              </p>
+              <div className="step-tag mono">High Inter-Rater Rigor</div>
+            </div>
+
+            {/* گام ۴ */}
+            <div className="pipeline-step-card step-sky">
+              <div className="step-num mono">04</div>
+              <div className="step-icon-wrap bg-sky-light">
+                <CheckCircle2 size={20} className="text-sky" />
+              </div>
+              <div className="step-title">نمونه استاندارد طلایی</div>
+              <div className="step-stat mono">3,101 نظر انسانی</div>
+              <p className="step-desc">
+                ایجاد دیتاست مرجع حاشیه‌نویسی‌شده با نظارت مستقیم محققان جهت آموزش هوش مصنوعی.
+              </p>
+              <div className="step-tag mono">Gold-Standard Dataset</div>
+            </div>
+
+            {/* گام ۵ */}
+            <div className="pipeline-step-card step-crimson">
+              <div className="step-num mono">05</div>
+              <div className="step-icon-wrap bg-crimson-light">
+                <BrainCircuit size={20} className="text-crimson" />
+              </div>
+              <div className="step-title">مدل‌سازی عمیق BERT</div>
+              <div className="step-stat mono">F1-Score = 0.94</div>
+              <p className="step-desc">
+                آموزش مدل ترنسفورمر BERT و دستیابی به دقت ۹۴٪ جهت خودکارسازی پایش اخلاق.
+              </p>
+              <div className="step-tag mono">Transformer Deep AI</div>
             </div>
           </div>
-          <div className="platform-details-card" style={{ borderTop: '4px solid var(--accent-emerald)' }}>
-            <Scale size={32} className="text-emerald" />
-            <h4 style={{ fontSize: '17px', margin: '12px 0 6px', color: '#fff' }}>۹ دور ارزیابی تجربی</h4>
-            <p style={{ fontSize: '13px', color: '#cbd5e1', lineHeight: '1.6' }}>
-              ۲ ارزیاب مستقل، ۹ دوره پیش‌آزمون برچسب‌گذاری دستی را انجام دادند تا ضریب توافق به شاخص طلایی Cohen's Kappa = 0.91 رسید.
-            </p>
-            <div className="mono text-emerald" style={{ fontSize: '11px', marginTop: 'auto' }}>
-              Cohen's Kappa = 0.91 (High Rigor)
-            </div>
-          </div>
-          <div className="platform-details-card" style={{ borderTop: '4px solid var(--accent-sky)' }}>
-            <CheckCircle2 size={32} className="text-sky" />
-            <h4 style={{ fontSize: '17px', margin: '12px 0 6px', color: '#fff' }}>نمونه استاندارد ۳,۱۰۱ نظر</h4>
-            <p style={{ fontSize: '13px', color: '#cbd5e1', lineHeight: '1.6' }}>
-              استخراج ۳,۱۰۱ نظر پالایش‌شده با ۱۰۹ کلمه کلیدی برای آموزش و تست مدل‌های پیش‌بین یادگیری ماشین و یادگیری عمیق.
-            </p>
-            <div className="mono text-sky" style={{ fontSize: '11px', marginTop: 'auto' }}>
-              Gold Standard Labeled Dataset
-            </div>
+
+          <div className="method-summary-footer">
+            <span className="mono text-gold font-bold">خلاصه سخت‌گیری روش‌شناسی:</span>
+            <span>استفاده از نمونه‌گیری تصادفی طبقه‌بندی‌شده و ضریب توافق ۰.۹۱ تضمین می‌کند که داده‌ها کاملاً سوگیریناپذیر و قابل اتکا هستند.</span>
           </div>
         </div>
       );
@@ -352,37 +476,131 @@ export function SlideRenderer({ slide, onStartPresentation }: SlideRendererProps
     /* اسلاید ۵: تکامل چارچوب اخلاقی */
     case 'slide-05':
       return (
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '22px', height: '100%' }}>
-          <div className="platform-details-card">
-            <h4 style={{ fontSize: '16px', color: '#94a3b8', borderBottom: '1px solid rgba(245, 158, 11, 0.15)', paddingBottom: '8px' }}>
-              چارچوب کلاسیک رایت (Wright ICT Framework 2011)
-            </h4>
-            <p style={{ fontSize: '13px', color: '#cbd5e1', lineHeight: '1.6' }}>
-              چارچوب رایت قبل از همه‌گیری گوشی‌های هوشمند مدرن نوشته شده بود و مفاهیم انتزاعی آکادمیک داشت:
-            </p>
-            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '12.5px', color: '#94a3b8' }}>
-              <li>❌ مفاهیم انتزاعی مثل Value Sensitive Design و Dignity</li>
-              <li>❌ عدم پوشش مفاهیم موبایلی مثل فید اعتیادآور و ترندهای ویدیو</li>
-              <li>❌ نگاه بیش از حد تئوریک بدون بازتاب زبان عامیانه کاربران</li>
-            </ul>
+        <div className="slide5-evolution-container">
+          {/* کارت سمت راست: چارچوب کلاسیک رایت */}
+          <div className="evolution-card classic-framework">
+            <div className="evolution-card-head">
+              <div className="framework-badge classic mono">ERA: 2011 (PRE-SMARTPHONE)</div>
+              <h3>چارچوب کلاسیک رایت (Wright ICT)</h3>
+              <p className="framework-subtitle">نگاه سنتی و انتزاعی به اخلاق فناوری اطلاعات پیش از بلوغ اپلیکیشن‌ها</p>
+            </div>
+
+            <div className="framework-pillars-box">
+              <div className="pillar-label">ارکان تئوریک سنتی:</div>
+              <div className="classic-pillars-list">
+                <span>کرامت انسانی (Human Dignity)</span>
+                <span>طراحی ارزش‌محور (VSD)</span>
+                <span>عدالت توزیعی و حریم خصوصی اولیه</span>
+              </div>
+            </div>
+
+            <div className="flaws-list">
+              <div className="flaw-item">
+                <span className="flaw-icon">❌</span>
+                <div>
+                  <strong>غفلت از مدل درآمدی «اقتصاد توجه»:</strong> رایت هرگز پیش‌بینی نمی‌کرد اپ‌ها بر پایه اعتیاد عصبی و دزدی زمان درآمدزایی کنند.
+                </div>
+              </div>
+              <div className="flaw-item">
+                <span className="flaw-icon">❌</span>
+                <div>
+                  <strong>عدم پوشش الگوهای تاریک شناختی (Dark Patterns):</strong> نبود هرگونه مفهوم برای لوپ‌های بی‌پایان، پخش خودکار و تله‌های اشتراک.
+                </div>
+              </div>
+              <div className="flaw-item">
+                <span className="flaw-icon">❌</span>
+                <div>
+                  <strong>شکاف عمیق با زبان عامیانه کاربران:</strong> مفاهیم فلسفی انتزاعی که نظرات صریح کاربران مثل «کلاهبرداری» یا «سانسور» را پوشش نمی‌داد.
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="platform-details-card" style={{ borderColor: 'rgba(16, 185, 129, 0.4)', background: 'rgba(16, 185, 129, 0.05)' }}>
-            <h4 style={{ fontSize: '16px', color: '#10b981', borderBottom: '1px solid rgba(16, 185, 129, 0.2)', paddingBottom: '8px' }}>
-              چارچوب تجربی نوین ESE 2024 (۹ مقوله جدید کشف‌شده)
-            </h4>
-            <p style={{ fontSize: '13px', color: '#cbd5e1', lineHeight: '1.6' }}>
-              محققان با تحلیل زبان واقعی کاربران در گوگل پلی، ۹ دغدغه حاد جدید اضافه کردند:
-            </p>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', fontSize: '12px' }}>
-              <span className="hero-academic-pill" style={{ color: '#fde68a', borderColor: 'rgba(245, 158, 11, 0.3)' }}>طراحی اعتیادآور (Addiction)</span>
-              <span className="hero-academic-pill" style={{ color: '#fde68a', borderColor: 'rgba(245, 158, 11, 0.3)' }}>سانسور و سرکوب (Censorship)</span>
-              <span className="hero-academic-pill" style={{ color: '#fde68a', borderColor: 'rgba(245, 158, 11, 0.3)' }}>سرقت هویت (Catfishing)</span>
-              <span className="hero-academic-pill" style={{ color: '#fde68a', borderColor: 'rgba(245, 158, 11, 0.3)' }}>اخبار جعلی (Misinformation)</span>
-              <span className="hero-academic-pill" style={{ color: '#fde68a', borderColor: 'rgba(245, 158, 11, 0.3)' }}>کلاهبرداری مالی (Scam)</span>
-              <span className="hero-academic-pill" style={{ color: '#fde68a', borderColor: 'rgba(245, 158, 11, 0.3)' }}>آزار سایبری (Bullying)</span>
-              <span className="hero-academic-pill" style={{ color: '#fde68a', borderColor: 'rgba(245, 158, 11, 0.3)' }}>تبلیغات قمار (Harmful Ads)</span>
-              <span className="hero-academic-pill" style={{ color: '#fde68a', borderColor: 'rgba(245, 158, 11, 0.3)' }}>محتوای نامناسب (Vulgarity)</span>
+          {/* مرکز: نشانگر جهش پارادایم */}
+          <div className="evolution-arrow-divider">
+            <div className="arrow-circle">
+              <Zap size={18} className="text-gold" />
+            </div>
+            <span className="arrow-text">جهش پارادایم زیست‌بوم موبایل</span>
+          </div>
+
+          {/* کارت سمت چپ: چارچوب نوین تجربی ESE 2024 */}
+          <div className="evolution-card modern-framework">
+            <div className="evolution-card-head">
+              <div className="framework-badge modern mono">ESE 2024 (SPRINGER NATURE)</div>
+              <h3 className="text-emerald">چارچوب تجربی نوین ESE 2024</h3>
+              <p className="framework-subtitle">کشف ۹ دغدغه حاد جدید بر پایه زبان میدانی ۵.۸ میلیون کاربر واقعی</p>
+            </div>
+
+            <div className="modern-new-categories-grid">
+              <div className="new-cat-chip">
+                <Flame size={14} className="text-amber" />
+                <div>
+                  <strong>طراحی اعتیادآور</strong>
+                  <span className="mono">Addiction</span>
+                </div>
+              </div>
+              <div className="new-cat-chip">
+                <Lock size={14} className="text-crimson" />
+                <div>
+                  <strong>سانسور و سرکوب</strong>
+                  <span className="mono">Censorship</span>
+                </div>
+              </div>
+              <div className="new-cat-chip">
+                <AlertTriangle size={14} className="text-gold" />
+                <div>
+                  <strong>سرقت هویت</strong>
+                  <span className="mono">Catfishing</span>
+                </div>
+              </div>
+              <div className="new-cat-chip">
+                <FileText size={14} className="text-sky" />
+                <div>
+                  <strong>اخبار جعلی</strong>
+                  <span className="mono">Misinformation</span>
+                </div>
+              </div>
+              <div className="new-cat-chip">
+                <Scale size={14} className="text-emerald" />
+                <div>
+                  <strong>کلاهبرداری مالی</strong>
+                  <span className="mono">Scam & Fraud</span>
+                </div>
+              </div>
+              <div className="new-cat-chip">
+                <ShieldAlert size={14} className="text-crimson" />
+                <div>
+                  <strong>آزار سایبری</strong>
+                  <span className="mono">Cyberbullying</span>
+                </div>
+              </div>
+              <div className="new-cat-chip">
+                <Zap size={14} className="text-amber" />
+                <div>
+                  <strong>تبلیغات آسیب‌رسان</strong>
+                  <span className="mono">Harmful Ads</span>
+                </div>
+              </div>
+              <div className="new-cat-chip">
+                <Sparkles size={14} className="text-rose" />
+                <div>
+                  <strong>محتوای نامناسب</strong>
+                  <span className="mono">Vulgarity</span>
+                </div>
+              </div>
+              <div className="new-cat-chip">
+                <Copy size={14} className="text-indigo" />
+                <div>
+                  <strong>سرقت محتوای معنوی</strong>
+                  <span className="mono">Content Theft</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="modern-summary-callout">
+              <CheckCircle2 size={15} className="text-emerald" />
+              <span>پوشش کامل ۱۶ بُعد اخلاقی در ۶ لایه سیستمی نرم‌افزار برای نخستین بار در دنیا</span>
             </div>
           </div>
         </div>

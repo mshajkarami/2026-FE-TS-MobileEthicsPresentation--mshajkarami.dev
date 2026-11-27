@@ -2208,3 +2208,1022 @@ body {
 .radar-empirical-footer p {
   line-height: 1.5;
 }
+
+/* ==================== اسلاید ۳: شناسنامه پژوهش ESE 2024 و ۳ سؤال بنیادی ==================== */
+.slide3-research-passport-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 18px;
+  height: 100%;
+  align-items: stretch;
+}
+
+.research-passport-card {
+  background: linear-gradient(145deg, rgba(22, 28, 44, 0.88) 0%, rgba(12, 16, 26, 0.96) 100%);
+  border: 1px solid rgba(245, 158, 11, 0.32);
+  border-radius: var(--radius-lg);
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+.passport-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.passport-badge-gold {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fde68a;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.passport-rank-badge {
+  font-size: 10.5px;
+  font-weight: 800;
+  color: var(--accent-emerald);
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.passport-paper-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.45;
+  margin: 10px 0 4px;
+  font-family: var(--font-mono);
+  direction: ltr !important;
+  text-align: left;
+}
+
+.passport-paper-fa {
+  font-size: 12.5px;
+  color: #fde68a;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.passport-meta-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+}
+
+.passport-meta-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11.5px;
+}
+
+.passport-meta-item .meta-lbl {
+  color: #94a3b8;
+}
+
+.passport-meta-item .meta-val {
+  color: #f1f5f9;
+  font-weight: 600;
+}
+
+.passport-doi-box {
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: var(--radius-sm);
+  padding: 7px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+}
+
+.passport-doi-box .doi-tag {
+  background: var(--accent-gold);
+  color: #0b0f17;
+  font-weight: 900;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 9.5px;
+}
+
+.passport-doi-box .doi-url {
+  color: #fde68a;
+  letter-spacing: 0.5px;
+}
+
+.research-rq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+}
+
+.rq-section-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: #fde68a;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rq-cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.rq-luxury-card {
+  background: rgba(18, 24, 38, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rq-luxury-card:hover {
+  transform: translateY(-2px);
+  background: rgba(24, 32, 50, 0.9);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
+}
+
+.rq-luxury-card.rq-gold {
+  border-right: 4px solid var(--accent-gold);
+}
+
+.rq-luxury-card.rq-emerald {
+  border-right: 4px solid var(--accent-emerald);
+}
+
+.rq-luxury-card.rq-sky {
+  border-right: 4px solid var(--accent-sky);
+}
+
+.rq-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rq-badge {
+  font-size: 11px;
+  font-weight: 900;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.rq-type-tag {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+.rq-question-text {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #f1f5f9;
+}
+
+.rq-answer-footer {
+  font-size: 11px;
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+/* ==================== اسلاید ۴: متدولوژی و خط لوله ۵ مرحله‌ای ==================== */
+.slide4-methodology-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.method-pipeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.method-pipeline-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  flex: 1;
+  align-items: stretch;
+}
+
+.pipeline-step-card {
+  background: rgba(18, 24, 38, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.pipeline-step-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px -5px rgba(0, 0, 0, 0.7);
+}
+
+.pipeline-step-card.step-gold { border-top: 3.5px solid var(--accent-gold); }
+.pipeline-step-card.step-amber { border-top: 3.5px solid var(--accent-amber); }
+.pipeline-step-card.step-emerald { border-top: 3.5px solid var(--accent-emerald); }
+.pipeline-step-card.step-sky { border-top: 3.5px solid var(--accent-sky); }
+.pipeline-step-card.step-crimson { border-top: 3.5px solid var(--accent-crimson); }
+
+.step-num {
+  font-size: 24px;
+  font-weight: 900;
+  opacity: 0.18;
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  color: #fff;
+}
+
+.step-icon-wrap {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+}
+
+.step-title {
+  font-size: 12.5px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.step-stat {
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--accent-gold);
+}
+
+.step-desc {
+  font-size: 11px;
+  color: #cbd5e1;
+  line-height: 1.55;
+  flex: 1;
+}
+
+.step-tag {
+  font-size: 9.5px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #94a3b8;
+  width: fit-content;
+  margin-top: auto;
+}
+
+.method-summary-footer {
+  background: rgba(245, 158, 11, 0.08);
+  border-right: 3px solid var(--accent-gold);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  font-size: 11.5px;
+  color: #fde68a;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ==================== اسلاید ۵: تکامل و تحول چارچوب اخلاقی ==================== */
+.slide5-evolution-container {
+  display: grid;
+  grid-template-columns: 1fr 50px 1.25fr;
+  gap: 14px;
+  height: 100%;
+  align-items: stretch;
+}
+
+.evolution-card {
+  background: rgba(18, 24, 38, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.evolution-card.classic-framework {
+  border-right: 3.5px solid #64748b;
+}
+
+.evolution-card.modern-framework {
+  border-right: 3.5px solid var(--accent-emerald);
+  background: linear-gradient(145deg, rgba(16, 24, 36, 0.9) 0%, rgba(10, 18, 26, 0.96) 100%);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+}
+
+.framework-badge {
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.framework-badge.classic {
+  background: rgba(148, 163, 184, 0.15);
+  color: #94a3b8;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.framework-badge.modern {
+  background: rgba(16, 185, 129, 0.15);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.evolution-card-head h3 {
+  font-size: 16px;
+  font-weight: 900;
+  color: #fff;
+}
+
+.framework-subtitle {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.framework-pillars-box {
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: var(--radius-sm);
+  padding: 8px 10px;
+  font-size: 11px;
+}
+
+.pillar-label {
+  font-weight: 700;
+  color: #cbd5e1;
+  margin-bottom: 4px;
+}
+
+.classic-pillars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: #94a3b8;
+}
+
+.flaws-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 11.5px;
+  color: #cbd5e1;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.flaw-item {
+  display: flex;
+  gap: 8px;
+  line-height: 1.55;
+  background: rgba(244, 63, 94, 0.06);
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  border-right: 2px solid var(--accent-crimson);
+}
+
+.flaw-icon {
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.evolution-arrow-divider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.arrow-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-text {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 9.5px;
+  color: #fde68a;
+  font-weight: 800;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.modern-new-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  flex: 1;
+}
+
+.new-cat-chip {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 6px;
+  padding: 6px 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.new-cat-chip:hover {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.35);
+  transform: translateY(-1px);
+}
+
+.new-cat-chip strong {
+  font-size: 11px;
+  color: #fff;
+  display: block;
+}
+
+.new-cat-chip span {
+  font-size: 9px;
+  color: #94a3b8;
+  display: block;
+}
+
+.modern-summary-callout {
+  background: rgba(16, 185, 129, 0.12);
+  border-right: 3px solid var(--accent-emerald);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-size: 11px;
+  color: #6ee7b7;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+}
+
+/* ==================== اسلاید ۱۳: شبیه‌ساز الگوهای تاریک و بازرس کد (Slide 13 Masterpiece) ==================== */
+.dark-pattern-sim-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 8px;
+}
+
+.sim-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(245, 158, 11, 0.15);
+}
+
+.sim-header-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sim-header-title h3 {
+  font-size: 14.5px;
+  font-weight: 900;
+  color: #fff;
+}
+
+.mode-toggle-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.mode-toggle-btn {
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mode-toggle-btn.bad-btn {
+  background: rgba(244, 63, 94, 0.1);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  color: #fda4af;
+}
+
+.mode-toggle-btn.bad-btn.active {
+  background: linear-gradient(135deg, #f43f5e, #be123c);
+  color: #fff;
+  border-color: #f43f5e;
+  box-shadow: 0 0 15px rgba(244, 63, 94, 0.45);
+}
+
+.mode-toggle-btn.good-btn {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #6ee7b7;
+}
+
+.mode-toggle-btn.good-btn.active {
+  background: linear-gradient(135deg, #10b981, #047857);
+  color: #fff;
+  border-color: #10b981;
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.45);
+}
+
+.sim-grid-layout {
+  display: grid;
+  grid-template-columns: 260px 280px 1fr;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+/* سایدبار سناریوها */
+.sim-sidebar-card {
+  background: rgba(16, 21, 33, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.sidebar-title {
+  font-size: 11px;
+  font-weight: 800;
+  color: #fde68a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding-bottom: 4px;
+}
+
+.scenario-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.scenario-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 6px;
+  padding: 7px 10px;
+  cursor: pointer;
+  text-align: right;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+}
+
+.scenario-btn:hover {
+  background: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.3);
+  transform: translateX(-2px);
+}
+
+.scenario-btn.active {
+  background: linear-gradient(135deg, rgba(26, 35, 56, 0.95), rgba(16, 22, 36, 0.98));
+  border-color: var(--accent-gold);
+  border-right: 3px solid var(--accent-gold);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.25);
+}
+
+.scenario-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scenario-cat {
+  font-size: 9.5px;
+  color: #94a3b8;
+}
+
+.severity-tag {
+  font-size: 8.5px;
+  font-weight: 800;
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.severity-tag.critical {
+  background: rgba(244, 63, 94, 0.2);
+  color: #f87171;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.severity-tag.high {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fde68a;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.scenario-name {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.scenario-eng {
+  font-size: 9px;
+  color: #64748b;
+}
+
+.impact-gauge-box {
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 6px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 10px;
+}
+
+.gauge-title {
+  color: #94a3b8;
+  font-weight: 700;
+}
+
+.gauge-meter {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.gauge-bar {
+  height: 100%;
+  border-radius: 9999px;
+  transition: width 0.35s ease;
+}
+
+.gauge-bar.good { background: #10b981; box-shadow: 0 0 8px #10b981; }
+.gauge-bar.bad { background: #f43f5e; box-shadow: 0 0 8px #f43f5e; }
+
+.gauge-metrics {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9.5px;
+  color: #cbd5e1;
+}
+
+/* موکاپ گوشی موبایل */
+.sim-phone-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.phone-bezel {
+  width: 100%;
+  max-width: 270px;
+  height: 100%;
+  background: #000;
+  border: 2px solid #334155;
+  border-radius: 28px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+}
+
+.phone-notch {
+  width: 60px;
+  height: 10px;
+  background: #000;
+  border-radius: 0 0 10px 10px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.camera-dot {
+  width: 5px;
+  height: 5px;
+  background: #1e293b;
+  border-radius: 50%;
+}
+
+.speaker-slot {
+  width: 22px;
+  height: 3px;
+  background: #1e293b;
+  border-radius: 2px;
+}
+
+.phone-screen {
+  flex: 1;
+  background: #0b0f17;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-status-bar {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 12px;
+  font-size: 9.5px;
+  color: #94a3b8;
+}
+
+.phone-content-area {
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.phone-modal {
+  width: 100%;
+  background: rgba(22, 28, 44, 0.95);
+  border: 1px solid;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.phone-modal.bad-modal {
+  border-color: rgba(244, 63, 94, 0.4);
+}
+
+.phone-modal.good-modal {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.modal-header h5 {
+  font-size: 11.5px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.modal-text {
+  font-size: 10px;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.modal-perm-list {
+  list-style: none;
+  font-size: 9px;
+  color: #fda4af;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 6px 8px;
+  border-radius: 4px;
+  margin: 4px 0;
+}
+
+.phone-btn {
+  width: 100%;
+  padding: 6px;
+  border-radius: 6px;
+  font-size: 10.5px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.phone-btn.danger-fill {
+  background: #dc2626;
+  color: #fff;
+}
+
+.phone-btn.emerald-fill {
+  background: #10b981;
+  color: #fff;
+}
+
+.phone-btn.ghost-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #cbd5e1;
+  margin-top: 4px;
+}
+
+.tiny-exit {
+  font-size: 9px;
+  color: #64748b;
+  text-align: center;
+  display: block;
+  margin-top: 4px;
+  text-decoration: underline;
+}
+
+.ethical-perm-card {
+  display: flex;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 8px;
+  border-radius: 6px;
+  align-items: flex-start;
+}
+
+.ethical-perm-card h6 {
+  font-size: 10.5px;
+  color: #6ee7b7;
+  font-weight: 800;
+}
+
+.tiny-text {
+  font-size: 9.5px;
+  color: #cbd5e1;
+  line-height: 1.45;
+}
+
+.ticket-flow-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 10px;
+  color: #6ee7b7;
+}
+
+.ticket-step {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 4px 6px;
+  border-radius: 4px;
+}
+
+.ticket-id-tag {
+  font-size: 9px;
+  color: var(--accent-gold);
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* پنل کد و تعهد مهندسی */
+.sim-code-card {
+  background: #0a0d14;
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.code-head-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fde68a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 6px;
+}
+
+.tag-mode {
+  font-size: 9.5px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.tag-mode.tag-good {
+  background: rgba(16, 185, 129, 0.15);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.tag-mode.tag-bad {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fda4af;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.code-editor-box {
+  flex: 1;
+  min-height: 0;
+  background: #05070a;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 10px 12px;
+  overflow-y: auto;
+  font-size: 11px;
+  line-height: 1.55;
+  color: #e2e8f0;
+  direction: ltr !important;
+  text-align: left;
+}
+
+.code-editor-box pre {
+  margin: 0;
+  font-family: var(--font-mono);
+}
+
+.engineering-verdict {
+  background: rgba(245, 158, 11, 0.08);
+  border-right: 3px solid var(--accent-gold);
+  border-radius: 6px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 11px;
+}
+
+.verdict-title {
+  font-weight: 800;
+  color: #fde68a;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.verdict-body {
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.impact-footer {
+  font-size: 10px;
+  color: #fde68a;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 2px;
+}
