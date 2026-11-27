@@ -4,16 +4,16 @@ import simPermissionImg from '../assets/sim_permission_dark.jpg';
 import simReportingImg from '../assets/sim_reporting_dark.jpg';
 import simAccessibilityImg from '../assets/sim_accessibility_dark.jpg';
 import simFeedImg from '../assets/sim_feed_dark.jpg';
+import simPermissionEthicalImg from '../assets/sim_permission_ethical.jpg';
+import simReportingEthicalImg from '../assets/sim_reporting_ethical.jpg';
+import simAccessibilityEthicalImg from '../assets/sim_accessibility_ethical.jpg';
+import simWellbeingEthicalImg from '../assets/sim_wellbeing_ethical.jpg';
 import {
   Smartphone,
   ShieldCheck,
   AlertTriangle,
   Code2,
   Wrench,
-  UserCheck,
-  Check,
-  Volume2,
-  Clock,
   Sparkles,
 } from 'lucide-react';
 
@@ -143,74 +143,35 @@ export function MobileDarkPatternSimulator() {
                     </div>
                   </div>
                 ) : (
-                  /* نمای اخلاقی و مهندسی شده */
-                  <div className="phone-modal good-modal">
-                    <div className="modal-header text-emerald">
-                      <ShieldCheck size={20} />
-                      <h5>اصلاح مهندسی اخلاق‌مدار</h5>
+                  /* نمای واقعی اصلاح مهندسی اخلاقی (Real App Ethical Fix Evidence) */
+                  <div className="phone-real-ethical-screen">
+                    <div className="ethical-img-wrapper">
+                      <img
+                        src={
+                          pattern.id === 'over-permission'
+                            ? simPermissionEthicalImg
+                            : pattern.id === 'broken-reporting'
+                            ? simReportingEthicalImg
+                            : pattern.id === 'infinite-rabbit-hole'
+                            ? simWellbeingEthicalImg
+                            : simAccessibilityEthicalImg
+                        }
+                        alt={pattern.titleFa}
+                        className="real-screen-img"
+                      />
+                      <div className="real-screen-ethical-tag">
+                        <ShieldCheck size={12} className="text-emerald" />
+                        <span>معماری اخلاق‌مدار پروداکشن (Clean UX)</span>
+                      </div>
                     </div>
 
-                    {pattern.id === 'over-permission' && (
-                      <div className="modal-body-content">
-                        <div className="ethical-perm-card">
-                          <UserCheck size={20} className="text-emerald" />
-                          <div>
-                            <h6>اصل حداقل دسترسی (Least Privilege)</h6>
-                            <p className="tiny-text">
-                              تنها در زمان نیاز به مکان‌یابی فروشگاه نزدیک، مجوز لوکیشن موقت و تقریبی درخواست می‌شود.
-                            </p>
-                          </div>
-                        </div>
-                        <div className="modal-actions">
-                          <button className="phone-btn emerald-fill">تایید دسترسی موقت</button>
-                          <button className="phone-btn ghost-btn">رد کردن بدون مسدودسازی</button>
-                        </div>
+                    <div className="ethical-solution-explain-banner">
+                      <div className="explain-top">
+                        <span className="ethical-badge mono">ETHICAL ARCHITECTURE</span>
+                        <h6 className="ethical-title">{pattern.titleFa}</h6>
                       </div>
-                    )}
-
-                    {pattern.id === 'broken-reporting' && (
-                      <div className="modal-body-content">
-                        <div className="ticket-flow-box">
-                          <div className="ticket-step active">
-                            <Check size={12} /> دسته‌بندی شفاف تخلف
-                          </div>
-                          <div className="ticket-step active">
-                            <Check size={12} /> آپلود نامحدود اسکرین‌شات
-                          </div>
-                          <div className="ticket-step active">
-                            <Check size={12} /> کد پیگیری زنده تیکت
-                          </div>
-                        </div>
-                        <div className="ticket-id-tag mono">Tracking ID: #ETH-84920</div>
-                      </div>
-                    )}
-
-                    {pattern.id === 'infinite-rabbit-hole' && (
-                      <div className="modal-body-content">
-                        <div className="mindful-pause-card">
-                          <Clock size={28} className="text-emerald" />
-                          <h6>توقف آگاهانه (Mindful Friction)</h6>
-                          <p className="tiny-text">
-                            شما ۴۵ دقیقه است که در حال مطالعه هستید. مایلید یک استراحت کوتاه داشته باشید؟
-                          </p>
-                          <button className="phone-btn emerald-fill">پایان اسکرول و ذخیره برای بعد</button>
-                        </div>
-                      </div>
-                    )}
-
-                    {pattern.id === 'accessibility-neglect' && (
-                      <div className="modal-body-content">
-                        <div className="accessible-ui-box">
-                          <div className="talkback-active">
-                            <Volume2 size={16} className="text-emerald animate-pulse" />
-                            <span>TalkBack: «دکمه تایید و پرداخت کرایه - برای فعال‌سازی دوبار لمس کنید»</span>
-                          </div>
-                          <div className="active-captions mono">
-                            [زیرنویس خودکار دو زبانه با کنتراست استاندارد]
-                          </div>
-                        </div>
-                      </div>
-                    )}
+                      <p className="ethical-desc">{pattern.ethicalFix}</p>
+                    </div>
                   </div>
                 )}
               </div>
