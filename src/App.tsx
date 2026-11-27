@@ -10,6 +10,7 @@ import {
   X,
   Sparkles,
   BookOpen,
+  Award,
 } from 'lucide-react';
 import { SlideRenderer } from './components/SlideRenderer';
 import { SLIDES } from './data/slidesData';
@@ -138,11 +139,16 @@ export function App() {
       <header className="deck-top-bar">
         <div className="top-bar-left">
           <div className="presentation-brand">
-            <Sparkles size={16} className="text-sky" />
+            <div className="brand-icon-wrapper">
+              <Sparkles size={16} />
+            </div>
             <span>اخلاق در توسعه نرم‌افزار موبایل</span>
           </div>
-          <span className="author-pill">صالح حاج‌کرمی</span>
-          <span className="paper-badge mono">Springer ESE 2024</span>
+          <span className="author-pill">
+            <Award size={13} className="text-gold" />
+            <span>محمد صالح حاج‌کرمی</span>
+          </span>
+          <span className="paper-badge mono">Springer Nature ESE 2024</span>
         </div>
 
         <div className="top-bar-right">
